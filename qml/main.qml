@@ -9,16 +9,20 @@ Window {
     width: 640
     height: 480
     visible: true
-    title: qsTr("ColorDetectorApp")
+    title: qsTr("Qt6 Color Detector App")
 
     Page {
         id: page
 
         anchors.fill: parent
 
-        title: parent.title
+        title: qsTr("Qt6 Color Detector App")
 
         header: Frame {
+            background: Rectangle {
+                color: "#e0e0e0"
+            }
+
             RowLayout {
                 width: parent.width
 
@@ -35,12 +39,20 @@ Window {
         }
 
         footer: Frame {
-            Rectangle {
-                id: result
-                anchors.horizontalCenter: parent.horizontalCenter
+            background: Rectangle {
+                color: "#e0e0e0"
+            }
 
-                width: 64
-                height: 64
+            RowLayout {
+                width: parent.width
+
+                Rectangle {
+                    id: result
+                    Layout.alignment: Qt.AlignHCenter
+
+                    width: 24
+                    height: 24
+                }
             }
         }
     }
@@ -61,6 +73,8 @@ Window {
 
     ColorDetector {
         id: colorDetector
+
+        interval: 100
 
         onColorDetected: {
             result.color = color;
