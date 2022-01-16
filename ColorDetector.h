@@ -32,6 +32,8 @@ protected:
     qint64 m_Last;
 
     void analyze(const QVideoFrame& videoFrame);
+    void analyze(int width, int height, uchar* bits);
+    Qt::GlobalColor detectColorGroup(const QColor& color);
 
 };
 

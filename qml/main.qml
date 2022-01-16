@@ -74,7 +74,8 @@ Window {
     ColorDetector {
         id: colorDetector
 
-        interval: 100
+        //interval: 100 // 100ms === 10Hz === 10 frames a second
+        interval: 0  // all frames === high frequency, cannot process all frames in practice, dramatic lag
 
         onColorDetected: {
             result.color = color;
